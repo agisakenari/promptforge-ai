@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1220">
+  <meta name="description" content="Ubah satu ide singkat menjadi master prompt AI yang jelas dan terstruktur dengan enam elemen penting.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2218%22%20fill%3D%22%23efaa72%22/%3E%3Cpath%20d%3D%22m32%209%206%2017%2017%206-17%206-6%2017-6-17-17-6%2017-6%206-17Z%22%20fill%3D%22%23101324%22/%3E%3C/svg%3E%0A" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root{--ink:#192031;--muted:#7e8595;--line:#e8e9f0;--canvas:#f8f9fc;--brand:#edaa77;--brand-dark:#d88956;--sidebar:#111525;--radius:18px;--shadow:0 12px 38px rgba(22,27,46,.035)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:14px/1.55 'DM Sans',sans-serif;background:var(--canvas);-webkit-font-smoothing:antialiased}
+button,select,textarea{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.5}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.9;flex-shrink:0}
+svg.solid-icon{fill:currentColor;stroke:none}
+[hidden]{display:none!important}
+.app-shell{min-height:100vh;display:flex}
+.sidebar{position:sticky;top:0;height:100vh;width:246px;flex:0 0 246px;background:var(--sidebar);color:#e9eaf2;display:flex;flex-direction:column;padding:33px 18px 18px;z-index:3}
+.brand{display:flex;align-items:center;gap:11px;padding-left:8px;margin-bottom:55px;color:white;text-decoration:none}
+.brand-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#efaa78;color:#17192c;box-shadow:0 4px 24px rgba(239,170,120,.22)}
+.brand-icon svg{width:25px;height:25px}
+.brand-name{font:800 20px/1.1 'Plus Jakarta Sans',sans-serif;letter-spacing:-1.05px}
+.brand-name span{color:#eeaa7e}
+.brand-name small{display:block;letter-spacing:1.9px;font-size:8.5px;font-weight:800;color:#747a95;margin-top:5px}
+.sidebar-label{color:#606782;font-size:9px;letter-spacing:1.8px;font-weight:800;padding-left:13px;margin-bottom:13px}
+.sidebar-nav{display:grid;gap:7px}
+.nav-item{appearance:none;background:transparent;color:#8e95b0;border:0;text-align:left;width:100%;display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:10px;text-decoration:none;font-size:12px;font-weight:600;transition:.2s}
+.nav-item svg{width:17px;height:17px}
+.nav-item:hover{background:#21263a;color:#fff}
+.nav-item.active{color:#fff;background:#25283b}
+.nav-item.active svg{color:#f0ae7e}
+.nav-badge{margin-left:auto;font-size:9px;color:#aaacc5}
+.history-count{margin-left:auto;color:#8c93ad;border-radius:7px;background:#21263a;padding:0 6px;font-size:11px}
+.history-box{margin-top:42px;min-height:130px}
+.history-heading{display:flex;justify-content:space-between;align-items:center;padding-left:12px;color:#646b86;font-size:9px;letter-spacing:1.5px;font-weight:800}
+.icon-button{background:transparent;border:0;display:grid;place-items:center;width:29px;height:29px;color:#81889f;border-radius:6px}
+.icon-button svg{width:14px;height:14px}
+.icon-button:hover{background:#272b42;color:#fff}
+.history-list{margin-top:10px;max-height:235px;overflow:auto;scrollbar-color:#414660 transparent;scrollbar-width:thin}
+.history-empty{color:#777f99;font-size:11px;padding:9px 12px;line-height:1.7}
+.history-item{width:100%;padding:9px 11px;border-radius:9px;border:0;background:transparent;color:#a7acc0;display:flex;text-align:left;gap:10px;align-items:center;font-size:11.5px}
+.history-item:hover,.history-item.active{background:#252a3c;color:#f0f0fb}
+.history-item svg{width:14px;height:14px;color:#7c83a4}
+.history-item span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sidebar-bottom{margin-top:auto}
+.sidebar-tip{padding:18px 15px 14px;border-radius:13px;background:linear-gradient(145deg,#282a3b,#1d2235);border:1px solid rgba(255,255,255,.035);margin-bottom:25px}
+.sidebar-tip-head{display:flex;align-items:center;gap:8px;color:#f4e8e1;font-size:11.5px;font-weight:700}
+.sidebar-tip-head svg{width:15px;height:15px;color:#f3b281}
+.sidebar-tip p{margin:9px 0 0;color:#969ab4;font-size:10.8px;line-height:1.75}
+.sidebar-footer{display:flex;align-items:center;color:#727993;font-size:9.5px;gap:8px;padding:0 7px}
+.sidebar-footer>span:last-child{margin-left:auto}.status-dot{width:6px;height:6px;background:#6dc9a8;border-radius:100%}
+.main-content{min-width:0;flex:1}
+.topbar{height:74px;border-bottom:1px solid #eceef3;display:flex;justify-content:space-between;align-items:center;padding:0 clamp(24px,3.1vw,56px);background:#fcfcfe}
+.breadcrumb{font-size:11px;color:#a2a6b2}.breadcrumb span{padding:0 13px;color:#c7c9d0}.breadcrumb strong{font-weight:700;color:#494d5d}
+.topbar-actions{display:flex;align-items:center;gap:17px}
+.privacy-tag{color:#777f8d;font-size:10.5px;display:flex;gap:8px;align-items:center}.privacy-dot{height:7px;width:7px;background:#52b59e;border-radius:50%}
+.top-new-btn{border:1px solid #e3e5ed;border-radius:8px;background:#fff;color:#444b5e;padding:10px 13px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px;transition:.2s}
+.top-new-btn:hover{border-color:#de9d6d;color:#b9754b}.top-new-btn svg{width:14px;height:14px}
+.mobile-menu{display:none;background:none;border:0;color:var(--ink)}
+.page-content{max-width:1550px;margin:0 auto;padding:48px clamp(24px,3.1vw,56px) 24px}
+.hero{margin-bottom:38px}.hero-eyebrow{display:flex;align-items:center;gap:9px;color:#d38954;font-weight:800;font-size:9px;letter-spacing:1.65px}
+.eyebrow-sparkle{font-size:17px;line-height:1}.eyebrow-line{width:24px;height:1px;background:#c5c9d3;margin-left:3px}.eyebrow-version{color:#a9aebc;letter-spacing:1.3px}
+h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
+.hero h1{font-size:clamp(38px,4vw,59px);line-height:1.24;letter-spacing:-2.9px;margin:15px 0 15px;font-weight:800;color:#1b2031}
+.gradient-text{background:linear-gradient(105deg,#dc9064 4%,#b277ab 52%,#8c80c4 93%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{max-width:570px;font-size:13px;line-height:1.85;color:#858999;margin:0 0 23px}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap}.hero-meta span{display:flex;align-items:center;gap:6px;font-weight:600;color:#656c7b;font-size:10.5px}.hero-meta svg{width:14px;height:14px;color:#54ad94;stroke-width:2.5}
+.workspace-grid{display:grid;grid-template-columns:minmax(330px,.96fr) minmax(400px,1.18fr);align-items:start;gap:22px}
+.left-column{display:grid;gap:20px;min-width:0}
+.panel{border:1px solid #e9eaf0;border-radius:var(--radius);background:white;box-shadow:var(--shadow);min-width:0}
+.input-panel{padding:29px 28px 24px}
+.panel-heading{display:flex;align-items:center;justify-content:space-between}.panel-kicker{font-size:9px;font-weight:800;letter-spacing:1.6px;color:#d78e61}.panel-kicker span{color:#b2b4c0;margin:0 3px}
+.panel-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:10px}.panel-icon.orange{background:#fff2e8;color:#c67b47}.panel-icon svg{width:18px;height:18px}
+.panel h2{font-size:21px;letter-spacing:-.9px;margin:10px 0 5px;line-height:1.4}
+.panel-subtitle{color:#9296a4;margin:0;font-size:11.5px;line-height:1.75}
+.input-label{display:block;margin:26px 0 10px;font-weight:800;font-size:11.5px;color:#3b4254}
+.textarea-wrap{position:relative}
+#briefInput{width:100%;height:173px;resize:vertical;padding:16px 15px 34px;border:1px solid #e2e4ed;background:#fcfcfe;border-radius:12px;color:#252b3e;font-size:12.5px;line-height:1.8;outline:none;transition:.2s}
+#briefInput:focus{border-color:#e3ab87;box-shadow:0 0 0 4px rgba(234,169,124,.13);background:white}
+#briefInput::placeholder{color:#b2b5c3}
+.character-count{position:absolute;bottom:15px;right:14px;color:#b0b3be;font-size:9.5px;pointer-events:none}
+.example-heading{display:flex;align-items:center;gap:7px;margin:16px 0 10px;color:#9195a2;font-size:10px;font-weight:700}.example-heading svg{width:13px;height:13px;color:#d69a77;fill:#f2caa9;stroke:none}
+.example-list{display:flex;flex-wrap:wrap;gap:7px}.example-pill{border:1px solid #e8e9ef;background:#fff;color:#626b7c;display:inline-flex;align-items:center;gap:6px;border-radius:7px;padding:7px 9px;font-size:10px;white-space:nowrap;transition:.2s}.example-pill svg{width:12px;height:12px}.example-pill:hover{background:#fff4ed;color:#b9744b;border-color:#f0d6c6}
+.input-separator{height:1px;background:#eef0f4;margin:25px 0 21px}
+.settings-heading{font-size:11px;font-weight:800;color:#41475a;display:flex;align-items:center;gap:7px;margin-bottom:13px}.settings-heading svg{width:14px;height:14px}.settings-heading span{color:#b5b8c4;font-size:10px;font-weight:500;margin-left:auto}
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.settings-grid label{font-size:10px;color:#6e7585;font-weight:700}.settings-grid select{margin-top:7px;display:block;width:100%;height:41px;border:1px solid #e6e8ef;background:#fcfcfd;border-radius:8px;color:#464c5d;font-size:10.5px;padding:0 9px;outline:none;cursor:pointer}.settings-grid select:focus{border-color:#e1a078}
+.generate-btn{width:100%;height:51px;border:0;border-radius:10px;background:#202437;color:white;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px;font-weight:700;font-size:12px;box-shadow:0 8px 17px rgba(30,34,52,.12);transition:.2s}.generate-btn:hover{background:#30354d;transform:translateY(-1px);box-shadow:0 11px 20px rgba(30,34,52,.17)}.generate-btn svg{width:16px;height:16px}.generate-btn>.solid-icon{color:#efb98e}.generate-btn .end-arrow{margin-left:0;width:15px;height:15px;opacity:.8}.generate-btn:disabled{transform:none;opacity:.8}
+.shortcut-hint{display:flex;justify-content:center;align-items:center;gap:5px;color:#a7aab5;font-size:9.5px;margin-top:14px}.shortcut-hint svg{width:11px;height:11px}.shortcut-hint kbd{font-size:9px;border:1px solid #e5e6eb;background:#fafafa;padding:1px 4px;border-radius:3px}
+.anatomy-panel{padding:20px 21px 18px;background:#fff;border:1px solid #e9eaf0;border-radius:var(--radius)}
+.anatomy-header{display:flex;align-items:center;gap:12px}.anatomy-icon{width:34px;height:34px;display:grid;place-items:center;background:#f2f0fd;color:#9177d1;border-radius:9px}.anatomy-icon svg{width:18px;height:18px}.anatomy-header h3{font-size:12px;letter-spacing:-.2px;margin:0 0 2px}.anatomy-header p{font-size:10.4px;color:#a0a3b1;margin:0}.anatomy-items{border-top:1px solid #f0f0f4;margin-top:15px;padding-top:15px;display:grid;grid-template-columns:repeat(3,1fr);row-gap:12px;column-gap:8px}.anatomy-items div{display:flex;align-items:center;font-size:10px;color:#6b7081;white-space:nowrap;gap:7px;font-weight:600}.anatomy-items i{height:7px;width:7px;flex-shrink:0;border-radius:3px;background:var(--dot)}
+.output-panel{padding:30px 28px 24px;min-height:710px;position:relative}
+.output-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.output-head h2{margin:10px 0 5px}.output-head .panel-subtitle{max-width:360px}.mode-pill{white-space:nowrap;color:#8c85ad;background:#f4f1fa;border:1px solid #eeeaf6;font-size:8.5px;letter-spacing:.8px;font-weight:800;border-radius:7px;padding:7px 9px;margin-top:2px}.mode-pill.ai{background:#e6f7ee;color:#399776;border-color:#cdf0de}.mode-pill.local{background:#fff5e7;color:#b47835;border-color:#f9e5c6}
+.empty-state{min-height:580px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px 13px 49px}.empty-art{width:220px;height:220px;position:relative;display:grid;place-items:center;margin-bottom:11px}.art-ring{position:absolute;border:1px dashed #ece9f3;border-radius:50%;inset:13px}.ring-b{inset:40px;border-style:solid;border-color:#f1ecf2}.art-core{height:82px;width:82px;display:grid;place-items:center;border-radius:24px;background:linear-gradient(135deg,#fff0e4,#f1e9ff);box-shadow:0 12px 30px rgba(203,161,171,.18);z-index:1;transform:rotate(-8deg)}.art-core svg{width:41px;height:41px;color:#dd9976;transform:rotate(8deg)}.art-chip{position:absolute;width:24px;height:24px;border:5px solid white;border-radius:9px;box-shadow:0 4px 14px #ebe8f0;z-index:2}.chip-1{background:#7c8def;left:36px;top:30px;transform:rotate(-15deg)}.chip-2{background:#f3ad65;right:17px;top:71px;transform:rotate(20deg)}.chip-3{background:#6acaad;left:6px;top:112px;transform:rotate(20deg)}.chip-4{background:#d88670;right:35px;bottom:15px;transform:rotate(-30deg)}.chip-5{background:#e68aaa;left:61px;bottom:4px;transform:rotate(12deg)}.chip-6{background:#9d83da;right:60px;top:10px;transform:rotate(-10deg)}
+.empty-state h3,.loading-state h3{font-size:18px;letter-spacing:-.5px;margin:4px 0 9px}.empty-state>p,.loading-state>p{color:#979aa8;font-size:11.5px;line-height:1.9;max-width:326px;margin:0}.empty-state p strong{color:#555b6b;font-weight:700}.empty-steps{display:flex;align-items:center;gap:8px;margin-top:33px;background:#fbfbfd;border:1px solid #eff0f5;padding:10px 13px;border-radius:9px;color:#8c90a0;font-size:9.5px}.empty-steps span{white-space:nowrap}.empty-steps b{display:inline-grid;place-items:center;border-radius:50%;width:16px;height:16px;background:#efedf7;color:#8b7caf;font-size:9px;margin-right:3px}.empty-steps .steps-arrow{color:#c8c9d2}
+.loading-state{min-height:580px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.loading-orb{height:88px;width:88px;border-radius:29px;background:linear-gradient(135deg,#f3bc91,#a18fea);display:grid;place-items:center;color:#fff;margin-bottom:24px;box-shadow:0 17px 35px rgba(167,144,201,.23);animation:pulse 1.5s ease-in-out infinite}.loading-orb svg{width:46px;height:46px}.loading-progress{height:5px;width:195px;border-radius:10px;background:#eff0f5;overflow:hidden;margin-top:24px}.loading-progress span{display:block;width:45%;height:100%;border-radius:10px;background:linear-gradient(90deg,#e2a47f,#9e8cdf);animation:loading 1.6s ease-in-out infinite}.loading-phases{display:flex;gap:12px;margin-top:17px;color:#b4b6c1;font-size:10px}.loading-phases .is-active{color:#c18d69;font-weight:700}@keyframes pulse{50%{transform:scale(1.06)}}@keyframes loading{0%{transform:translateX(-100%)}100%{transform:translateX(340%)}}
+.result-state{margin-top:22px}.analysis-strip{border:1px solid #ddf0e7;background:linear-gradient(120deg,#f2fbf7,#f9fcfb);padding:15px 16px;border-radius:12px}.analysis-top{display:flex;align-items:center;gap:10px}.analysis-icon{width:35px;height:35px;display:grid;place-items:center;background:#e1f4e8;color:#4eae8c;border-radius:9px}.analysis-icon svg{height:18px;width:18px}.analysis-caption{font-size:8px;letter-spacing:1.2px;font-weight:800;color:#64a78c;margin-bottom:2px}.analysis-top strong{font-size:11.5px;color:#345f51;font-weight:800}.result-score{margin-left:auto;background:white;border:1px solid #d9eee4;padding:6px 9px;border-radius:7px;font-weight:800;font-size:10px;color:#479c7a}.improvement-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.improvement-tags span{display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0eee7;border-radius:5px;padding:4px 7px;color:#688f7c;font-size:9px}.improvement-tags svg{width:10px;height:10px}.mode-note{margin-top:10px;font-size:10.5px;color:#947242;background:#fff5e4;border:1px solid #f4e3c8;border-radius:7px;padding:7px 10px}
+.result-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:22px 0 17px}.view-tabs{display:flex;border:1px solid #e9eaf0;background:#f8f9fb;border-radius:9px;padding:3px}.view-tabs button{border:0;background:transparent;color:#9195a3;border-radius:6px;padding:8px 10px;font-size:10px;font-weight:700}.view-tabs button.active{color:#384050;background:white;box-shadow:0 2px 5px rgba(15,18,35,.08)}.toolbar-actions{display:flex;gap:5px}.small-tool{display:flex;align-items:center;gap:5px;padding:8px 9px;background:#fff;border:1px solid #e9eaf0;border-radius:7px;font-size:10px;font-weight:700;color:#677080}.small-tool:hover{border-color:#dda984;color:#bd845e}.small-tool svg{height:13px;width:13px}
+.section-view{display:grid;gap:12px}.section-card{border:1px solid #e9eaf0;border-radius:11px;padding:14px 14px 13px 17px;position:relative;background:#fff;transition:border-color .2s}.section-card:before{position:absolute;content:"";width:3px;top:17px;bottom:17px;left:0;border-radius:0 3px 3px 0;background:var(--section-color)}.section-card:hover{border-color:#d7d9e3}.section-card-header{display:flex;align-items:center;gap:8px;margin-bottom:9px}.section-bullet{height:23px;width:23px;display:grid;place-items:center;font-weight:800;font-size:10px;border-radius:6px;background:var(--section-tint);color:var(--section-color)}.section-card-header h3{font-size:11px;letter-spacing:.25px;margin:0;font-weight:800}.section-card-header small{margin-left:auto;font-size:9px;color:#a4a7b3}.section-card p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11.5px;color:#6d7282;line-height:1.7;margin:0}.section-card textarea{width:100%;min-height:93px;padding:10px;border:1px solid #e1e4ee;border-radius:8px;font-size:11.5px;line-height:1.65;color:#333b4f;outline:none;resize:vertical}.section-card textarea:focus{border-color:#c9a4a0;box-shadow:0 0 0 3px rgba(227,176,148,.13)}.section-edit{border:0;background:transparent;display:flex;align-items:center;gap:4px;color:#a4a6b2;font-size:9.5px;margin-left:auto;padding:3px}.section-edit:hover{color:#cc936c}.section-edit svg{width:12px;height:12px}.section-card.editing{border-color:#e6beaa;background:#fffdfb}.section-card.editing small{display:none}
+.raw-view label{font-weight:700;font-size:11px;color:#535a6b}.raw-view textarea{display:block;width:100%;min-height:590px;resize:vertical;border:1px solid #e5e6ec;border-radius:11px;padding:17px;line-height:1.8;font-size:11.5px;color:#41495b;background:#fdfdff;outline:none;margin-top:10px}.raw-view textarea:focus{border-color:#d8a887}.raw-view p{font-size:10px;color:#a6a9b4;margin-top:9px}
+.result-bottom{border-top:1px solid #eff0f4;padding-top:17px;margin-top:17px;display:flex;align-items:center;justify-content:space-between;gap:14px}.ready-note{display:flex;align-items:center;gap:7px;color:#8c93a0;font-size:10px}.ready-note svg{color:#6cbd9b;width:14px;height:14px}.regenerate-btn{white-space:nowrap;color:#595f70;background:white;border:1px solid #e5e6ed;border-radius:7px;padding:8px 10px;font-size:10px;font-weight:700;display:flex;align-items:center;gap:6px}.regenerate-btn svg{width:12px;height:12px}.regenerate-btn:hover{border-color:#dfae90;color:#ba8059}
+.main-footer{padding:23px 0 15px;display:flex;justify-content:space-between;gap:10px;color:#a6aab7;font-size:9.5px}
+.toast{position:fixed;z-index:10;left:50%;bottom:29px;transform:translate(-50%,20px);background:#222638;color:#fff;padding:12px 17px;border-radius:10px;font-size:12px;box-shadow:0 13px 35px rgba(17,20,39,.25);opacity:0;pointer-events:none;transition:.24s;max-width:min(92vw,650px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.toast.error{background:#aa4855}
+@media(min-width:1600px){.page-content{padding-top:55px}.workspace-grid{gap:28px}.sidebar{width:266px;flex-basis:266px}}
+@media(max-width:1200px){.sidebar{width:210px;flex-basis:210px}.page-content{padding:37px 26px}.topbar{padding:0 26px}.workspace-grid{grid-template-columns:minmax(290px,.9fr) minmax(345px,1.1fr);gap:15px}.input-panel,.output-panel{padding:24px 21px}.example-pill{font-size:9px}.hero h1{font-size:44px}}
+@media(max-width:980px){.sidebar{width:72px;flex-basis:72px;padding:23px 9px;align-items:center}.brand{padding:0;margin-bottom:48px}.brand-name,.sidebar-label,.nav-item:not(.active),.nav-item.active>.nav-badge,.history-box,.sidebar-bottom,.nav-item.active{font-size:0}.sidebar-nav{width:100%}.nav-item.active{justify-content:center;padding:13px}.nav-item.active svg{width:19px;height:19px}.workspace-grid{grid-template-columns:minmax(270px,.95fr) minmax(310px,1.05fr)}.empty-steps{font-size:8.5px;padding:7px}.hero h1{font-size:41px}}
+@media(max-width:730px){.sidebar{position:fixed;top:0;bottom:0;left:0;width:235px;height:100vh;align-items:stretch;padding:28px 17px 17px;transform:translateX(-105%);transition:transform .25s;box-shadow:12px 0 40px rgba(8,15,30,.16)}.sidebar.open{transform:translateX(0)}.sidebar .brand{padding-left:8px}.sidebar .brand-name{font-size:20px}.sidebar .sidebar-label{font-size:9px}.sidebar .nav-item{font-size:12px;justify-content:flex-start}.sidebar .nav-item:not(.active){display:flex}.sidebar .nav-item.active>.nav-badge{font-size:9px}.sidebar .history-box{display:block}.sidebar .sidebar-bottom{display:block}.topbar{height:65px;padding:0 18px}.mobile-menu{display:grid;place-items:center}.privacy-tag{display:none}.topbar-actions{gap:10px}.top-new-btn{padding:8px 9px}.page-content{padding:31px 17px 20px}.hero{margin-bottom:29px}.hero h1{font-size:clamp(34px,8vw,43px);letter-spacing:-1.8px}.hero>p{font-size:12px}.hero-meta{gap:13px}.hero-meta span{font-size:9px}.workspace-grid{grid-template-columns:1fr;gap:18px}.output-panel{min-height:540px}.empty-state{min-height:440px;padding-bottom:25px}.empty-art{transform:scale(.85);margin-bottom:-3px}.main-footer{flex-direction:column;text-align:center;align-items:center}.input-panel,.output-panel{padding:23px 20px}}
+@media(max-width:430px){.eyebrow-version{display:none}.hero-meta{gap:9px}.hero-meta span{font-size:8.5px}.settings-grid{gap:8px}.settings-grid select{font-size:9.5px}.anatomy-items{grid-template-columns:repeat(2,1fr)}.empty-steps{gap:4px;font-size:8px;padding:8px}.output-head h2{font-size:17px}.mode-pill{font-size:7px}.result-toolbar{flex-wrap:wrap}.toolbar-actions{margin-left:auto}.section-card{padding:13px}.section-card p{font-size:11px}.breadcrumb{font-size:10px}}
+
+</style>
+  <title>PromptForge — Dari Ide ke Master Prompt</title>
+</head>
+<body>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ic-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3ZM20 18l.8 1.8L23 20.5l-2.2.7L20 23l-.8-1.8-2.2-.7 2.2-.7L20 18ZM4 2l.7 1.7L6.5 4.5l-1.8.8L4 7l-.7-1.7-1.8-.8 1.8-.8L4 2Z"/></symbol>
+    <symbol id="ic-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="ic-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="ic-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 17v3h16v-3"/></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="ic-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="ic-pencil" viewBox="0 0 24 24"><path d="m16 4 4 4-12 12-5 1 1-5L16 4Z"/><path d="m14 6 4 4"/></symbol>
+    <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></symbol>
+    <symbol id="ic-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5m-18 5 9 5 9-5"/></symbol>
+    <symbol id="ic-sliders" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="16" cy="17" r="2"/></symbol>
+    <symbol id="ic-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-12h-7V2Z"/></symbol>
+    <symbol id="ic-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+    <symbol id="ic-pen" viewBox="0 0 24 24"><path d="m3 21 5-1 12-12-4-4L4 16l-1 5Z"/><path d="m14 6 4 4"/></symbol>
+    <symbol id="ic-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></symbol>
+    <symbol id="ic-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14-5L4 8m0-5v5h5M4 13a8 8 0 0 0 14 5l2-2m0 5v-5h-5"/></symbol>
+    <symbol id="ic-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 14H7L6 7m4 4v6m4-6v6"/></symbol>
+    <symbol id="ic-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="brand" id="brandLink" aria-label="PromptForge Home"><span class="brand-icon"><svg class="solid-icon"><use href="#ic-sparkles"/></svg></span><span class="brand-name">prompt<span>forge</span><small>AI PROMPT STUDIO</small></span></a>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="sidebar-nav" aria-label="Navigasi utama">
+        <a href="#studio" class="nav-item active"><svg><use href="#ic-grid"/></svg> Prompt Studio <span class="nav-badge">01</span></a>
+        <button class="nav-item" id="historyNav"><svg><use href="#ic-clock"/></svg> Riwayat <span class="history-count" id="historyCount">0</span></button>
+      </nav>
+      <div class="history-box">
+        <div class="history-heading"><span>TERAKHIR DIBUAT</span><button class="icon-button dark" id="clearHistory" title="Hapus semua riwayat" aria-label="Hapus semua riwayat"><svg><use href="#ic-trash"/></svg></button></div>
+        <div id="historyList" class="history-list"><div class="history-empty">Belum ada prompt tersimpan.</div></div>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><div class="sidebar-tip-head"><svg class="solid-icon"><use href="#ic-bolt"/></svg> Prompt yang lebih baik</div><p>Enam elemen penting, satu ide sederhana. Lebih jelas, lebih terarah.</p></div>
+        <div class="sidebar-footer"><span class="status-dot"></span> PromptForge Studio <span>v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="studio">
+      <div class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Prompt Studio</strong></div><div class="topbar-actions"><span class="privacy-tag"><span class="privacy-dot"></span> Simpan lokal</span><button class="top-new-btn" id="newPrompt"><svg><use href="#ic-plus"/></svg> Prompt baru</button><button id="menuToggle" class="mobile-menu" aria-label="Buka menu"><svg><use href="#ic-menu"/></svg></button></div></div>
+
+      <div class="page-content">
+        <section class="hero">
+          <div class="hero-eyebrow"><span class="eyebrow-sparkle">✦</span> YOUR PERSONAL PROMPT ARCHITECT <span class="eyebrow-line"></span> <span class="eyebrow-version">BUILT FOR BETTER AI</span></div>
+          <h1>Ide sederhana.<br><span class="gradient-text">Prompt luar biasa.</span></h1>
+          <p>Ceritakan apa yang ingin kamu lakukan. Kami bantu mengubahnya menjadi master prompt yang jelas, terstruktur, dan siap digunakan.</p>
+          <div class="hero-meta"><span><svg><use href="#ic-check"/></svg> 6 elemen strategis</span><span><svg><use href="#ic-check"/></svg> Prompt siap pakai</span><span><svg><use href="#ic-check"/></svg> Hasil bisa diedit</span></div>
+        </section>
+
+        <div class="workspace-grid">
+          <div class="left-column">
+            <section class="panel input-panel" aria-labelledby="inputTitle">
+              <div class="panel-heading"><div class="panel-kicker">01 <span>/</span> TULIS IDEMU</div><div class="panel-icon orange"><svg><use href="#ic-pen"/></svg></div></div>
+              <h2 id="inputTitle">Mulai dari satu ide.</h2>
+              <p class="panel-subtitle">Tak perlu jadi prompt engineer. Tulis seperti sedang menjelaskan ke teman.</p>
+              <label class="input-label" for="briefInput">Apa yang ingin kamu buat dengan AI?</label>
+              <div class="textarea-wrap"><textarea id="briefInput" maxlength="3000" placeholder="Contoh: Buat strategi konten Instagram 30 hari untuk bisnis kopi lokal agar lebih banyak pelanggan baru..." spellcheck="true"></textarea><span class="character-count" id="charCount">0 / 3000</span></div>
+              <div class="example-heading"><svg><use href="#ic-sparkles"/></svg> Coba inspirasi ini</div>
+              <div class="example-list"><button class="example-pill" data-example="Buat strategi pemasaran 30 hari untuk bisnis kopi lokal dengan anggaran terbatas"><svg><use href="#ic-briefcase"/></svg> Marketing</button><button class="example-pill" data-example="Buat 10 ide konten Instagram edukatif untuk brand skincare lokal dengan gaya santai"><svg><use href="#ic-pen"/></svg> Konten kreatif</button><button class="example-pill" data-example="Rancang aplikasi web pencatat keuangan sederhana untuk freelancer, mobile-friendly"><svg><use href="#ic-code"/></svg> Buat aplikasi</button></div>
+              <div class="input-separator"></div>
+              <div class="settings-heading"><svg><use href="#ic-sliders"/></svg> Preferensi hasil <span>opsional</span></div>
+              <div class="settings-grid"><label>Bahasa prompt<select id="languageSelect"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select></label><label>Tingkat detail<select id="detailSelect"><option value="balanced">Ringkas & efektif</option><option value="deep">Mendalam & lengkap</option></select></label></div>
+              <button id="generateBtn" class="generate-btn"><svg class="solid-icon"><use href="#ic-sparkles"/></svg> <span>Bangun Master Prompt</span> <svg class="end-arrow"><use href="#ic-arrow"/></svg></button>
+              <div class="shortcut-hint"><svg><use href="#ic-info"/></svg> Tip: tekan <kbd>Ctrl</kbd> + <kbd>Enter</kbd> untuk membuat prompt.</div>
+            </section>
+
+            <section class="anatomy-panel" aria-labelledby="anatomyTitle"><div class="anatomy-header"><span class="anatomy-icon"><svg><use href="#ic-layers"/></svg></span><div><h3 id="anatomyTitle">The 6-part framework</h3><p>Struktur yang membuat AI lebih memahami maksudmu.</p></div></div><div class="anatomy-items"><div><i style="--dot:#6678f3"></i>Role</div><div><i style="--dot:#ed9a43"></i>Task</div><div><i style="--dot:#31b7a5"></i>Context</div><div><i style="--dot:#df794c"></i>Reasoning</div><div><i style="--dot:#ed6f96"></i>Stop Conditions</div><div><i style="--dot:#9875e7"></i>Output</div></div></section>
+          </div>
+
+          <section class="panel output-panel" aria-labelledby="outputTitle" id="resultPanel">
+            <div class="output-head"><div><div class="panel-kicker">02 <span>/</span> MASTER PROMPT</div><h2 id="outputTitle">Hasil yang lebih terarah.</h2><p class="panel-subtitle">Enam komponen yang saling melengkapi, siap kamu gunakan.</p></div><span class="mode-pill" id="modeBadge">SIAP DIGUNAKAN</span></div>
+            <div id="emptyState" class="empty-state"><div class="empty-art"><div class="art-core"><svg class="solid-icon"><use href="#ic-sparkles"/></svg></div><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><span class="art-chip chip-1"></span><span class="art-chip chip-2"></span><span class="art-chip chip-3"></span><span class="art-chip chip-4"></span><span class="art-chip chip-5"></span><span class="art-chip chip-6"></span></div><h3>Ide kamu, potensi tak terbatas.</h3><p>Tulis ide singkat di sebelah kiri, lalu klik <strong>Bangun Master Prompt</strong>. Hasil terstruktur akan muncul di sini.</p><div class="empty-steps"><span><b>1</b> Tulis ide</span><span class="steps-arrow">→</span><span><b>2</b> Analisis</span><span class="steps-arrow">→</span><span><b>3</b> Salin prompt</span></div></div>
+            <div id="loadingState" class="loading-state" hidden><div class="loading-orb"><svg class="solid-icon"><use href="#ic-sparkles"/></svg></div><h3>Sedang merancang prompt...</h3><p id="loadingText">Mengidentifikasi tujuan dan konteks idemu</p><div class="loading-progress"><span></span></div><div class="loading-phases"><span class="phase is-active">Menganalisis</span><span class="phase">Menyusun</span><span class="phase">Memoles</span></div></div>
+            <div id="resultState" class="result-state" hidden>
+              <div class="analysis-strip"><div class="analysis-top"><div class="analysis-icon"><svg><use href="#ic-sparkles"/></svg></div><div><div class="analysis-caption">ANALISIS IDE SELESAI</div><strong id="intentText">Tujuan teridentifikasi</strong></div><span class="result-score" id="qualityScore">6/6</span></div><div class="improvement-tags" id="improvements"></div><div id="modeNote" class="mode-note" hidden></div></div>
+              <div class="result-toolbar"><div class="view-tabs" role="tablist" aria-label="Tampilan hasil"><button id="structureTab" role="tab" aria-selected="true" class="active">6 Komponen</button><button id="rawTab" role="tab" aria-selected="false">Master Prompt</button></div><div class="toolbar-actions"><button class="small-tool" id="copyBtn" title="Salin seluruh prompt"><svg><use href="#ic-copy"/></svg> <span>Salin</span></button><button class="small-tool" id="downloadBtn" title="Unduh prompt TXT"><svg><use href="#ic-download"/></svg> <span>Unduh</span></button></div></div>
+              <div id="sectionView" class="section-view"></div>
+              <div id="rawView" class="raw-view" hidden><label for="rawOutput">Master prompt siap copy-paste</label><textarea id="rawOutput" spellcheck="false" aria-label="Master prompt lengkap"></textarea><p>Perubahan di tab ini akan tersimpan ketika kamu kembali ke 6 Komponen, jika format judul tetap dipertahankan.</p></div>
+              <div class="result-bottom"><div class="ready-note"><svg><use href="#ic-check"/></svg><span>Master prompt siap digunakan. Kamu bisa mengedit setiap komponennya.</span></div><button id="regenerateBtn" class="regenerate-btn"><svg><use href="#ic-refresh"/></svg> Buat ulang</button></div>
+            </div>
+          </section>
+        </div>
+        <footer class="main-footer"><span>✦ Dibuat untuk ide-ide yang layak dieksekusi.</span><span>Role · Task · Context · Reasoning · Stop Conditions · Output</span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const FIELDS = [
+    {key:'role',title:'ROLE',desc:'Siapa AI harus berperan?',color:'#637af0',tint:'#f0f2ff'},
+    {key:'task',title:'TASK',desc:'Apa yang harus dicapai?',color:'#e49a46',tint:'#fff5e9'},
+    {key:'context',title:'CONTEXT',desc:'Fakta, batasan, dan asumsi',color:'#2bac9a',tint:'#eaf9f5'},
+    {key:'reasoning',title:'REASONING',desc:'Pendekatan dan pertimbangan',color:'#d7805d',tint:'#fff0e9'},
+    {key:'stop',title:'STOP CONDITIONS',desc:'Kapan pekerjaan dianggap tuntas?',color:'#e36f95',tint:'#fff0f5'},
+    {key:'output',title:'OUTPUT',desc:'Bagaimana hasil harus disajikan?',color:'#9878d8',tint:'#f4efff'}
+  ];
+  const KEY='promptforge_history_v1';
+  const current = {sections:null,analysis:null,mode:null,id:null,tab:'structure',rawDirty:false,busy:false};
+  let toastTimer;
+  const icon = name => `<svg><use href="#ic-${name}"/></svg>`;
+  const safe = value => String(value ?? '').trim();
+  const getHistory = () => {try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch{return []}};
+  const saveHistory = items => {try{localStorage.setItem(KEY,JSON.stringify(items.slice(0,12)))}catch{notify('Penyimpanan lokal tidak tersedia.','error')}};
+
+  function notify(message,type='') {
+    const toast=$('toast');
+    toast.textContent=message;toast.className=`toast show ${type}`;
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>{toast.className='toast'},3500);
+  }
+  function setBusy(busy){
+    current.busy=busy;
+    $('generateBtn').disabled=busy;$('regenerateBtn').disabled=busy;
+    $('generateBtn').querySelector('span').textContent=busy?'Sedang merancang...':'Bangun Master Prompt';
+    $('emptyState').hidden=busy || Boolean(current.sections);
+    $('loadingState').hidden=!busy;
+    $('resultState').hidden=busy || !current.sections;
+  }
+  function masterText(){return FIELDS.map(f=>`# ${f.title}\n${safe(current.sections?.[f.key])}`).join('\n\n');}
+  function rawText(){return current.rawDirty && current.tab==='raw' ? $('rawOutput').value : masterText();}
+  function storeCurrent(){
+    if(!current.sections||!current.id)return;
+    const entry={id:current.id,brief:$('briefInput').value.trim(),sections:{...current.sections},analysis:current.analysis,mode:current.mode,language:$('languageSelect').value,detail:$('detailSelect').value,created:Date.now()};
+    const all=getHistory().filter(x=>x.id!==current.id);
+    saveHistory([entry,...all]);renderHistory();
+  }
+  function renderHistory(){
+    const list=$('historyList'),history=getHistory();
+    $('historyCount').textContent=String(history.length);
+    list.replaceChildren();
+    if(!history.length){const p=document.createElement('div');p.className='history-empty';p.textContent='Belum ada prompt tersimpan.';list.append(p);return;}
+    for(const item of history){
+      const btn=document.createElement('button');btn.className='history-item'+(item.id===current.id?' active':'');btn.title=item.brief;
+      const symbol=document.createElement('span');symbol.innerHTML=icon('clock');
+      const label=document.createElement('span');label.textContent=item.brief || 'Master prompt';
+      btn.append(symbol,label);btn.addEventListener('click',()=>restore(item));list.append(btn);
+    }
+  }
+  function newPrompt(){
+    current.sections=null;current.analysis=null;current.mode=null;current.id=null;current.tab='structure';current.rawDirty=false;
+    $('briefInput').value='';$('charCount').textContent='0 / 3000';$('modeBadge').textContent='SIAP DIGUNAKAN';$('modeBadge').className='mode-pill';
+    $('emptyState').hidden=false;$('loadingState').hidden=true;$('resultState').hidden=true;
+    renderHistory();$('briefInput').focus();closeMenu();
+  }
+  function restore(item){
+    current.sections={...item.sections};current.analysis=item.analysis||{};current.mode=item.mode||'local';current.id=item.id;current.rawDirty=false;
+    $('briefInput').value=item.brief || '';$('charCount').textContent=`${$('briefInput').value.length} / 3000`;
+    $('languageSelect').value=item.language || 'id';$('detailSelect').value=item.detail || 'balanced';
+    presentResult();closeMenu();notify('Prompt dari riwayat berhasil dibuka.');
+    if(window.innerWidth<730)$('resultPanel').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function createLocal(brief,options){
+    const words=brief.toLowerCase();
+    let focus='tugas umum',expert='konsultan senior dan pemecah masalah',gaps=['audiens utama','cakupan dan batasan','indikator keberhasilan'];
+    if(/aplikasi|website|app|software|dashboard|saas|coding|sistem/.test(words)){focus='produk dan teknologi';expert='arsitek produk digital dan ahli UX senior';gaps=['target pengguna','fitur utama','platform yang dituju'];}
+    else if(/marketing|bisnis|pemasaran|jualan|strategi|pelanggan|usaha/.test(words)){focus='bisnis dan pemasaran';expert='strategi pemasaran dan pengembangan bisnis senior';gaps=['audiens','kanal promosi','anggaran'];}
+    else if(/konten|artikel|instagram|tiktok|youtube|naskah|blog|caption/.test(words)){focus='pembuatan konten';expert='strategi konten dan copywriter senior';gaps=['audiens','kanal publikasi','gaya bahasa'];}
+    else if(/belajar|materi|kursus|ujian|kelas/.test(words)){focus='pembelajaran';expert='desainer kurikulum dan pengajar senior';gaps=['level awal','durasi belajar','hasil pembelajaran'];}
+    const en=options.language==='en',deep=options.detail==='deep';
+    const sections=en?{
+      role:`Act as a senior expert in ${focus}. Prioritize clear, pragmatic, and verifiable results.`,
+      task:`Deliver a complete solution for this user request: "${brief}". Identify the central objective, necessary deliverables, and success criteria.`,
+      context:`Facts supplied by the user: "${brief}". Not yet specified: ${gaps.join(', ')}. Do not invent missing specifics; explicitly label necessary assumptions.`,
+      reasoning:'Identify the end goal, break the work into practical stages, prioritize the biggest impact, examine trade-offs and dependencies, and state brief observable rationales without revealing private internal reasoning. Ask at most three questions only when essential.',
+      stop:'- Fulfill the main request with relevant deliverables.\n- Make every recommended action concrete.\n- Distinguish facts from assumptions.\n- Include practical quality checks.\n- End with a final completion checklist.',
+      output:`Respond in English using clear headings, actionable steps, helpful examples, and a concise summary. ${deep?'Include priorities, metrics, risks, dependencies, and a detailed implementation roadmap where relevant.':'Keep it concise and direct.'}`
+    }:{
+      role:`Bertindak sebagai ${expert}. Prioritaskan rekomendasi praktis, presisi, dan hasil yang dapat dievaluasi.`,
+      task:`Kerjakan tujuan utama dari permintaan pengguna ini: "${brief}". Definisikan deliverable utama dan indikator keberhasilan yang sesuai.`,
+      context:`Fakta yang diberikan pengguna: "${brief}". Belum diketahui: ${gaps.join(', ')}. Jangan mengarang fakta; tandai asumsi yang benar-benar dibutuhkan secara eksplisit.`,
+      reasoning:'Identifikasi tujuan akhir, bagi pekerjaan menjadi langkah logis, prioritaskan dampak terbesar, periksa risiko serta ketergantungan, dan jelaskan alasan utama rekomendasi secara ringkas tanpa membuka penalaran internal tersembunyi. Ajukan maksimal tiga pertanyaan hanya bila informasi kritis kurang.',
+      stop:'- Tujuan utama dan deliverable tercapai.\n- Setiap langkah dapat ditindaklanjuti.\n- Asumsi dipisahkan dari fakta.\n- Ada kriteria dan checklist kualitas.\n- Tutup dengan evaluasi akhir yang jelas.',
+      output:`Jawab dalam bahasa Indonesia dengan subjudul jelas, langkah yang bisa dieksekusi, contoh relevan, dan rangkuman. ${deep?'Sertakan prioritas, metrik, risiko, dependensi, dan rencana implementasi terperinci jika relevan.':'Ringkas, spesifik, dan tanpa pengulangan.'}`
+    };
+    return {mode:'local',sections,analysis:{intent:en?`Detected focus: ${focus}`:`Fokus terdeteksi: ${focus}`,improvements:en?['Clear role','Practical outputs','Completion criteria']:['Peran lebih spesifik','Output lebih operasional','Kriteria selesai yang jelas'],missing:gaps,score:78}};
+  }
+  async function generate(){
+    if(current.busy)return;
+    const brief=$('briefInput').value.trim();
+    if(brief.length<8){notify('Tulis idemu terlebih dahulu (minimal 8 karakter).','error');$('briefInput').focus();return;}
+    const options={language:$('languageSelect').value,detail:$('detailSelect').value};
+    setBusy(true);const started=Date.now();
+    try{
+      let data;
+      try{
+        const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),35000);
+        let response;
+        try{response=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({brief,...options}),signal:controller.signal});}
+        finally{clearTimeout(timer);}
+        data=await response.json().catch(()=>({}));
+        if(!response.ok)throw new Error(data.error||`Terjadi kesalahan HTTP ${response.status}`);
+      }catch(error){
+        if(error instanceof TypeError){data=createLocal(brief,options);notify('Tidak dapat terhubung ke server. Menggunakan generator lokal.');}
+        else{throw error;}
+      }
+      if(!data?.sections || !FIELDS.every(f=>typeof data.sections[f.key]==='string' && data.sections[f.key].length>2))throw new Error('Hasil belum lengkap. Silakan ulangi.');
+      const remaining=Math.max(0,650-(Date.now()-started));if(remaining)await new Promise(r=>setTimeout(r,remaining));
+      current.sections=Object.fromEntries(FIELDS.map(f=>[f.key,data.sections[f.key]]));
+      current.analysis=data.analysis||{};current.mode=data.mode||'local';current.id=`pf-${Date.now()}-${Math.random().toString(36).slice(2,7)}`;
+      current.rawDirty=false;presentResult();storeCurrent();
+      if(window.innerWidth<730)$('resultPanel').scrollIntoView({behavior:'smooth',block:'start'});
+    }catch(error){notify(error.name==='AbortError'?'Permintaan terlalu lama. Silakan coba kembali.':error.message,'error');}
+    finally{setBusy(false);}
+  }
+  function presentResult(){
+    $('emptyState').hidden=true;$('loadingState').hidden=true;$('resultState').hidden=false;
+    $('modeBadge').className='mode-pill '+(current.mode==='ai'?'ai':'local');
+    $('modeBadge').textContent=current.mode==='ai'?'✦ AI AKTIF':'◈ MODE LOKAL';
+    $('intentText').textContent=current.analysis?.intent||'Tujuan berhasil diidentifikasi';
+    $('qualityScore').textContent='6/6 BAGIAN';
+    const improvements=$('improvements');improvements.replaceChildren();
+    for(const item of (current.analysis?.improvements||[]).slice(0,4)){
+      const span=document.createElement('span');span.innerHTML=icon('check');span.append(document.createTextNode(item));improvements.append(span);
+    }
+    $('modeNote').hidden=current.mode==='ai';
+    $('modeNote').textContent='Mode lokal: struktur prompt dibuat dengan aturan cerdas. Hubungkan OPENAI_API_KEY di server untuk analisis AI yang lebih kontekstual.';
+    renderSections();selectTab('structure');renderHistory();
+  }
+  function renderSections(){
+    const view=$('sectionView');view.replaceChildren();
+    FIELDS.forEach((field,i)=>{
+      const card=document.createElement('article');card.className='section-card';card.style.setProperty('--section-color',field.color);card.style.setProperty('--section-tint',field.tint);
+      const head=document.createElement('div');head.className='section-card-header';
+      const bullet=document.createElement('span');bullet.className='section-bullet';bullet.textContent=String(i+1).padStart(2,'0');
+      const title=document.createElement('h3');title.textContent=field.title;
+      const btn=document.createElement('button');btn.type='button';btn.className='section-edit';btn.innerHTML=`${icon('pencil')} Edit`;btn.setAttribute('aria-label',`Edit ${field.title}`);
+      head.append(bullet,title,btn);card.append(head);
+      const text=document.createElement('p');text.textContent=current.sections[field.key];card.append(text);
+      const editor=document.createElement('textarea');editor.value=current.sections[field.key];editor.hidden=true;editor.setAttribute('aria-label',`Isi ${field.title}`);card.append(editor);
+      btn.addEventListener('click',()=>{
+        const editing=!editor.hidden;
+        if(editing){
+          const value=editor.value.trim();if(!value){notify('Bagian prompt tidak boleh kosong.','error');return;}
+          current.sections[field.key]=value;text.textContent=value;editor.hidden=true;text.hidden=false;card.classList.remove('editing');btn.innerHTML=`${icon('pencil')} Edit`;storeCurrent();
+        }else{
+          text.hidden=true;editor.hidden=false;card.classList.add('editing');btn.innerHTML=`${icon('check')} Simpan`;editor.focus();
+        }
+      });
+      editor.addEventListener('keydown',e=>{if(e.key==='Escape'){editor.value=current.sections[field.key];btn.click();}});
+      editor.addEventListener('blur',()=>{if(!editor.hidden && editor.value.trim()){current.sections[field.key]=editor.value.trim();text.textContent=current.sections[field.key];storeCurrent();}});
+      view.append(card);
+    });
+  }
+  function parseRaw(raw){
+    const result={};
+    for(let i=0;i<FIELDS.length;i++){
+      const label=FIELDS[i].title;
+      const start=`# ${label}\n`;
+      const begin=raw.indexOf(start);
+      if(begin<0)return null;
+      const from=begin+start.length;
+      const next=i<FIELDS.length-1?raw.indexOf(`\n\n# ${FIELDS[i+1].title}\n`,from):-1;
+      if(i<FIELDS.length-1 && next<0)return null;
+      result[FIELDS[i].key]=raw.slice(from,next<0?undefined:next).trim();
+      if(!result[FIELDS[i].key])return null;
+    }
+    return result;
+  }
+  function selectTab(tab){
+    if(tab==='structure'&&current.tab==='raw'&&current.rawDirty){
+      const parsed=parseRaw($('rawOutput').value);
+      if(!parsed){notify('Format judul di Master Prompt berubah. Pulihkan # ROLE, # TASK, # CONTEXT, # REASONING, # STOP CONDITIONS, dan # OUTPUT sebelum kembali.','error');return;}
+      current.sections=parsed;current.rawDirty=false;renderSections();storeCurrent();
+    }
+    current.tab=tab;
+    $('structureTab').classList.toggle('active',tab==='structure');$('rawTab').classList.toggle('active',tab==='raw');
+    $('structureTab').setAttribute('aria-selected',String(tab==='structure'));$('rawTab').setAttribute('aria-selected',String(tab==='raw'));
+    $('sectionView').hidden=tab!=='structure';$('rawView').hidden=tab!=='raw';
+    if(tab==='raw'){current.rawDirty=false;$('rawOutput').value=masterText();}
+  }
+  async function copyPrompt(){
+    if(!current.sections){notify('Belum ada prompt untuk disalin.','error');return;}
+    const text=rawText();
+    try{await navigator.clipboard.writeText(text);notify('Master prompt berhasil disalin!');}
+    catch{
+      const temporary=document.createElement('textarea');temporary.value=text;temporary.style.position='fixed';temporary.style.opacity='0';document.body.append(temporary);temporary.select();
+      const ok=document.execCommand('copy');temporary.remove();notify(ok?'Master prompt berhasil disalin!':'Gagal menyalin otomatis. Salin teks secara manual.',ok?'':'error');
+    }
+  }
+  function downloadPrompt(){
+    if(!current.sections){notify('Belum ada prompt untuk diunduh.','error');return;}
+    const data=new Blob([rawText()+'\n'],{type:'text/plain;charset=utf-8'});
+    const url=URL.createObjectURL(data);const link=document.createElement('a');link.href=url;link.download='master-prompt-promptforge.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);notify('File master prompt diunduh.');
+  }
+  function closeMenu(){$('sidebar').classList.remove('open');}
+  $('briefInput').addEventListener('input',()=>{$('charCount').textContent=`${$('briefInput').value.length} / 3000`;});
+  $('briefInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();generate();}});
+  $('generateBtn').addEventListener('click',generate);$('regenerateBtn').addEventListener('click',generate);
+  $('newPrompt').addEventListener('click',newPrompt);$('brandLink').addEventListener('click',e=>{e.preventDefault();newPrompt();});
+  $('structureTab').addEventListener('click',()=>selectTab('structure'));$('rawTab').addEventListener('click',()=>selectTab('raw'));
+  $('rawOutput').addEventListener('input',()=>{current.rawDirty=true;});
+  $('copyBtn').addEventListener('click',copyPrompt);$('downloadBtn').addEventListener('click',downloadPrompt);
+  document.querySelectorAll('[data-example]').forEach(button=>button.addEventListener('click',()=>{$('briefInput').value=button.dataset.example;$('charCount').textContent=`${$('briefInput').value.length} / 3000`;$('briefInput').focus();notify('Contoh dimasukkan. Kamu bisa mengubahnya sebelum membuat prompt.');}));
+  $('historyNav').addEventListener('click',()=>{if(!getHistory().length){notify('Riwayat masih kosong. Buat satu prompt dulu.');return;}$('historyList').scrollIntoView({behavior:'smooth',block:'center'});if(window.innerWidth<730)$('sidebar').classList.add('open');});
+  $('clearHistory').addEventListener('click',()=>{if(!getHistory().length)return;if(confirm('Hapus semua riwayat prompt yang tersimpan di browser ini?')){saveHistory([]);renderHistory();notify('Riwayat berhasil dihapus.');}});
+  $('menuToggle').addEventListener('click',()=>$('sidebar').classList.toggle('open'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+  renderHistory();
+})();
+
+</script>
+</body>
+</html>

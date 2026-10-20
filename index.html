@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1220">
+  <meta name="description" content="Ubah satu ide singkat menjadi master prompt AI yang jelas dan terstruktur dengan enam elemen penting.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <title>PromptForge — Dari Ide ke Master Prompt</title>
+</head>
+<body>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ic-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3ZM20 18l.8 1.8L23 20.5l-2.2.7L20 23l-.8-1.8-2.2-.7 2.2-.7L20 18ZM4 2l.7 1.7L6.5 4.5l-1.8.8L4 7l-.7-1.7-1.8-.8 1.8-.8L4 2Z"/></symbol>
+    <symbol id="ic-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="ic-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="ic-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 17v3h16v-3"/></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="ic-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="ic-pencil" viewBox="0 0 24 24"><path d="m16 4 4 4-12 12-5 1 1-5L16 4Z"/><path d="m14 6 4 4"/></symbol>
+    <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></symbol>
+    <symbol id="ic-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5m-18 5 9 5 9-5"/></symbol>
+    <symbol id="ic-sliders" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="16" cy="17" r="2"/></symbol>
+    <symbol id="ic-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-12h-7V2Z"/></symbol>
+    <symbol id="ic-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+    <symbol id="ic-pen" viewBox="0 0 24 24"><path d="m3 21 5-1 12-12-4-4L4 16l-1 5Z"/><path d="m14 6 4 4"/></symbol>
+    <symbol id="ic-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></symbol>
+    <symbol id="ic-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14-5L4 8m0-5v5h5M4 13a8 8 0 0 0 14 5l2-2m0 5v-5h-5"/></symbol>
+    <symbol id="ic-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 14H7L6 7m4 4v6m4-6v6"/></symbol>
+    <symbol id="ic-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="brand" id="brandLink" aria-label="PromptForge Home"><span class="brand-icon"><svg class="solid-icon"><use href="#ic-sparkles"/></svg></span><span class="brand-name">prompt<span>forge</span><small>AI PROMPT STUDIO</small></span></a>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="sidebar-nav" aria-label="Navigasi utama">
+        <a href="#studio" class="nav-item active"><svg><use href="#ic-grid"/></svg> Prompt Studio <span class="nav-badge">01</span></a>
+        <button class="nav-item" id="historyNav"><svg><use href="#ic-clock"/></svg> Riwayat <span class="history-count" id="historyCount">0</span></button>
+      </nav>
+      <div class="history-box">
+        <div class="history-heading"><span>TERAKHIR DIBUAT</span><button class="icon-button dark" id="clearHistory" title="Hapus semua riwayat" aria-label="Hapus semua riwayat"><svg><use href="#ic-trash"/></svg></button></div>
+        <div id="historyList" class="history-list"><div class="history-empty">Belum ada prompt tersimpan.</div></div>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><div class="sidebar-tip-head"><svg class="solid-icon"><use href="#ic-bolt"/></svg> Prompt yang lebih baik</div><p>Enam elemen penting, satu ide sederhana. Lebih jelas, lebih terarah.</p></div>
+        <div class="sidebar-footer"><span class="status-dot"></span> PromptForge Studio <span>v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="studio">
+      <div class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Prompt Studio</strong></div><div class="topbar-actions"><span class="privacy-tag"><span class="privacy-dot"></span> Simpan lokal</span><button class="top-new-btn" id="newPrompt"><svg><use href="#ic-plus"/></svg> Prompt baru</button><button id="menuToggle" class="mobile-menu" aria-label="Buka menu"><svg><use href="#ic-menu"/></svg></button></div></div>
+
+      <div class="page-content">
+        <section class="hero">
+          <div class="hero-eyebrow"><span class="eyebrow-sparkle">✦</span> YOUR PERSONAL PROMPT ARCHITECT <span class="eyebrow-line"></span> <span class="eyebrow-version">BUILT FOR BETTER AI</span></div>
+          <h1>Ide sederhana.<br><span class="gradient-text">Prompt luar biasa.</span></h1>
+          <p>Ceritakan apa yang ingin kamu lakukan. Kami bantu mengubahnya menjadi master prompt yang jelas, terstruktur, dan siap digunakan.</p>
+          <div class="hero-meta"><span><svg><use href="#ic-check"/></svg> 6 elemen strategis</span><span><svg><use href="#ic-check"/></svg> Prompt siap pakai</span><span><svg><use href="#ic-check"/></svg> Hasil bisa diedit</span></div>
+        </section>
+
+        <div class="workspace-grid">
+          <div class="left-column">
+            <section class="panel input-panel" aria-labelledby="inputTitle">
+              <div class="panel-heading"><div class="panel-kicker">01 <span>/</span> TULIS IDEMU</div><div class="panel-icon orange"><svg><use href="#ic-pen"/></svg></div></div>
+              <h2 id="inputTitle">Mulai dari satu ide.</h2>
+              <p class="panel-subtitle">Tak perlu jadi prompt engineer. Tulis seperti sedang menjelaskan ke teman.</p>
+              <label class="input-label" for="briefInput">Apa yang ingin kamu buat dengan AI?</label>
+              <div class="textarea-wrap"><textarea id="briefInput" maxlength="3000" placeholder="Contoh: Buat strategi konten Instagram 30 hari untuk bisnis kopi lokal agar lebih banyak pelanggan baru..." spellcheck="true"></textarea><span class="character-count" id="charCount">0 / 3000</span></div>
+              <div class="example-heading"><svg><use href="#ic-sparkles"/></svg> Coba inspirasi ini</div>
+              <div class="example-list"><button class="example-pill" data-example="Buat strategi pemasaran 30 hari untuk bisnis kopi lokal dengan anggaran terbatas"><svg><use href="#ic-briefcase"/></svg> Marketing</button><button class="example-pill" data-example="Buat 10 ide konten Instagram edukatif untuk brand skincare lokal dengan gaya santai"><svg><use href="#ic-pen"/></svg> Konten kreatif</button><button class="example-pill" data-example="Rancang aplikasi web pencatat keuangan sederhana untuk freelancer, mobile-friendly"><svg><use href="#ic-code"/></svg> Buat aplikasi</button></div>
+              <div class="input-separator"></div>
+              <div class="settings-heading"><svg><use href="#ic-sliders"/></svg> Preferensi hasil <span>opsional</span></div>
+              <div class="settings-grid"><label>Bahasa prompt<select id="languageSelect"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select></label><label>Tingkat detail<select id="detailSelect"><option value="balanced">Ringkas & efektif</option><option value="deep">Mendalam & lengkap</option></select></label></div>
+              <button id="generateBtn" class="generate-btn"><svg class="solid-icon"><use href="#ic-sparkles"/></svg> <span>Bangun Master Prompt</span> <svg class="end-arrow"><use href="#ic-arrow"/></svg></button>
+              <div class="shortcut-hint"><svg><use href="#ic-info"/></svg> Tip: tekan <kbd>Ctrl</kbd> + <kbd>Enter</kbd> untuk membuat prompt.</div>
+            </section>
+
+            <section class="anatomy-panel" aria-labelledby="anatomyTitle"><div class="anatomy-header"><span class="anatomy-icon"><svg><use href="#ic-layers"/></svg></span><div><h3 id="anatomyTitle">The 6-part framework</h3><p>Struktur yang membuat AI lebih memahami maksudmu.</p></div></div><div class="anatomy-items"><div><i style="--dot:#6678f3"></i>Role</div><div><i style="--dot:#ed9a43"></i>Task</div><div><i style="--dot:#31b7a5"></i>Context</div><div><i style="--dot:#df794c"></i>Reasoning</div><div><i style="--dot:#ed6f96"></i>Stop Conditions</div><div><i style="--dot:#9875e7"></i>Output</div></div></section>
+          </div>
+
+          <section class="panel output-panel" aria-labelledby="outputTitle" id="resultPanel">
+            <div class="output-head"><div><div class="panel-kicker">02 <span>/</span> MASTER PROMPT</div><h2 id="outputTitle">Hasil yang lebih terarah.</h2><p class="panel-subtitle">Enam komponen yang saling melengkapi, siap kamu gunakan.</p></div><span class="mode-pill" id="modeBadge">SIAP DIGUNAKAN</span></div>
+            <div id="emptyState" class="empty-state"><div class="empty-art"><div class="art-core"><svg class="solid-icon"><use href="#ic-sparkles"/></svg></div><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><span class="art-chip chip-1"></span><span class="art-chip chip-2"></span><span class="art-chip chip-3"></span><span class="art-chip chip-4"></span><span class="art-chip chip-5"></span><span class="art-chip chip-6"></span></div><h3>Ide kamu, potensi tak terbatas.</h3><p>Tulis ide singkat di sebelah kiri, lalu klik <strong>Bangun Master Prompt</strong>. Hasil terstruktur akan muncul di sini.</p><div class="empty-steps"><span><b>1</b> Tulis ide</span><span class="steps-arrow">→</span><span><b>2</b> Analisis</span><span class="steps-arrow">→</span><span><b>3</b> Salin prompt</span></div></div>
+            <div id="loadingState" class="loading-state" hidden><div class="loading-orb"><svg class="solid-icon"><use href="#ic-sparkles"/></svg></div><h3>Sedang merancang prompt...</h3><p id="loadingText">Mengidentifikasi tujuan dan konteks idemu</p><div class="loading-progress"><span></span></div><div class="loading-phases"><span class="phase is-active">Menganalisis</span><span class="phase">Menyusun</span><span class="phase">Memoles</span></div></div>
+            <div id="resultState" class="result-state" hidden>
+              <div class="analysis-strip"><div class="analysis-top"><div class="analysis-icon"><svg><use href="#ic-sparkles"/></svg></div><div><div class="analysis-caption">ANALISIS IDE SELESAI</div><strong id="intentText">Tujuan teridentifikasi</strong></div><span class="result-score" id="qualityScore">6/6</span></div><div class="improvement-tags" id="improvements"></div><div id="modeNote" class="mode-note" hidden></div></div>
+              <div class="result-toolbar"><div class="view-tabs" role="tablist" aria-label="Tampilan hasil"><button id="structureTab" role="tab" aria-selected="true" class="active">6 Komponen</button><button id="rawTab" role="tab" aria-selected="false">Master Prompt</button></div><div class="toolbar-actions"><button class="small-tool" id="copyBtn" title="Salin seluruh prompt"><svg><use href="#ic-copy"/></svg> <span>Salin</span></button><button class="small-tool" id="downloadBtn" title="Unduh prompt TXT"><svg><use href="#ic-download"/></svg> <span>Unduh</span></button></div></div>
+              <div id="sectionView" class="section-view"></div>
+              <div id="rawView" class="raw-view" hidden><label for="rawOutput">Master prompt siap copy-paste</label><textarea id="rawOutput" spellcheck="false" aria-label="Master prompt lengkap"></textarea><p>Perubahan di tab ini akan tersimpan ketika kamu kembali ke 6 Komponen, jika format judul tetap dipertahankan.</p></div>
+              <div class="result-bottom"><div class="ready-note"><svg><use href="#ic-check"/></svg><span>Master prompt siap digunakan. Kamu bisa mengedit setiap komponennya.</span></div><button id="regenerateBtn" class="regenerate-btn"><svg><use href="#ic-refresh"/></svg> Buat ulang</button></div>
+            </div>
+          </section>
+        </div>
+        <footer class="main-footer"><span>✦ Dibuat untuk ide-ide yang layak dieksekusi.</span><span>Role · Task · Context · Reasoning · Stop Conditions · Output</span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
